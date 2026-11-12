@@ -200,40 +200,57 @@ def architecture():
     return svg(W, y + 16, "\n".join(b), "How programs, the kernel, the interpreter and the board fit together")
 
 
-# ---- 3. fuel and snapshots --------------------------------------------------
+# ---- 3. fuel: one task, then another, then the first again ------------------
 
 def fuel():
-    W, H = 1200, 420
+    W, H = 1200, 470
     b = []
-    ops = ["local.get", "i32.load", "i32.const", "i32.add", "i32.store", "br_if", "call", "local.set"]
-    x0, tw, gap, ty = 40, 128, 12, 70
-    stop_after = 4  # fuel runs out after the 5th instruction
-    b.append(text(40, 34, "fuel left", 16, 500, cls="muted"))
-    for i, op in enumerate(ops):
-        x = x0 + i * (tw + gap)
-        done = i <= stop_after
-        fill, stroke = ("vm-soft", "vm") if done else ("card", "line")
-        b.append(rect(x, ty, tw, 58, 10, fill, stroke, 2))
-        b.append(text(x + tw / 2, ty + 36, op, 18, 600, "middle", "mono", None if done else "muted"))
-        if done:
-            b.append(text(x + tw / 2, ty - 14, str(stop_after - i), 18, 700, "middle", fill="vm"))
-    sx = x0 + (stop_after + 1) * (tw + gap) - gap / 2
-    b.append(f'<line x1="{sx}" y1="{ty - 34}" x2="{sx}" y2="{ty + 84}" style="stroke:var(--stop)" stroke-width="4" stroke-linecap="round"/>')
-    b.append(text(sx + 12, ty + 106, "stops here: fuel 0, between two instructions", 17, 600, fill="stop"))
-    # the snapshot and where it goes
-    cy = 300
-    b.append(arrow(sx, ty + 118, 560, cy - 54, "muted", 2.5))
-    b.append(rect(300, cy - 50, 520, 118, 14, "card", "vm", 2))
-    b.append(text(324, cy - 18, "snapshot", 20, 700, fill="vm"))
-    b.append(text(324, cy + 12, "function 12, instruction at 0x3f4", 17, 500, cls="mono"))
-    b.append(text(324, cy + 40, "value stack, calls, globals, memory", 17, 500, cls="mono muted"))
-    b.append(chip_icon(150, cy + 8, 60, "board"))
-    b.append(text(150, cy + 84, "ESP32", 17, 600, "middle"))
-    b.append(arrow(200, cy + 8, 296, cy + 8, "muted", 2.5))
-    b.append(arrow(824, cy + 8, 950, cy + 8, "muted", 2.5))
-    b.append(browser_icon(1030, cy + 8, 120, 80, "board"))
-    b.append(text(1030, cy + 84, "goes on in the browser", 17, 600, "middle"))
-    return svg(W, H, "\n".join(b), "Fuel counts every instruction; a stopped program is a portable snapshot")
+    tw, gap, th = 92, 6, 50
+    lanes = {"A": 120, "B": 236}
+    b.append(text(40, lanes["A"] + 32, "Task A", 20, 700, fill="vm"))
+    b.append(text(40, lanes["B"] + 32, "Task B", 20, 700, fill="kern"))
+    for y in lanes.values():
+        b.append(f'<line x1="140" y1="{y + th / 2}" x2="1180" y2="{y + th / 2}" style="stroke:var(--line)" '
+                 f'stroke-width="1.5" stroke-dasharray="4 6"/>')
+
+    def slice_(x, lane, ops, color, fuel_from):
+        for i, op in enumerate(ops):
+            tx = x + i * (tw + gap)
+            b.append(rect(tx, lanes[lane], tw, th, 9, f"{color}-soft", color, 2))
+            b.append(text(tx + tw / 2, lanes[lane] + 31, op, 15.5, 600, "middle", "mono"))
+            b.append(text(tx + tw / 2, lanes[lane] - 10, str(fuel_from - 1 - i), 15, 700, "middle", fill=color))
+        return x + len(ops) * (tw + gap) - gap
+
+    # slice 1: A runs until its fuel is gone
+    x0 = 150
+    end1 = slice_(x0, "A", ["local.get", "i32.load", "i32.add", "i32.store"], "vm", 4)
+    sx = end1 + 12
+    b.append(f'<line x1="{sx}" y1="{lanes["A"] - 30}" x2="{sx}" y2="{lanes["A"] + th + 14}" style="stroke:var(--stop)" '
+             f'stroke-width="4" stroke-linecap="round"/>')
+    b.append(text(x0, 54, "1. A runs: every instruction takes one unit of fuel", 17, 650))
+    b.append(text(sx + 12, lanes["A"] + th + 6, "fuel 0: A stops", 15.5, 650, fill="stop"))
+    b.append(text(sx + 12, lanes["A"] + th + 26, "between two instructions", 15.5, 500, fill="stop"))
+    # slice 2: B gets the processor
+    x2 = sx + 30
+    end2 = slice_(x2, "B", ["call", "i32.mul", "br_if"], "kern", 3)
+    b.append(f'<line x1="{end2 + 12}" y1="{lanes["B"] - 30}" x2="{end2 + 12}" y2="{lanes["B"] + th + 14}" '
+             f'style="stroke:var(--stop)" stroke-width="4" stroke-linecap="round"/>')
+    b.append(text(x2, lanes["B"] + th + 34, "2. another task gets a slice", 17, 650))
+    b.append(arrow(sx, lanes["A"] + th + 40, x2 - 4, lanes["B"] + 10, "muted", 2.2))
+    # slice 3: A again, from the next instruction
+    x3 = end2 + 40
+    end3 = slice_(x3, "A", ["br_if", "call"], "vm", 4)
+    b.append(text(end3 + 14, lanes["A"] + 32, "…", 22, 700, cls="muted"))
+    b.append(text(x3 - 20, 54, "3. or A again, later:", 17, 650))
+    b.append(text(x3 - 20, 76, "from the very next instruction", 16, 500, cls="muted"))
+    b.append(arrow(end2 + 18, lanes["B"] + 10, x3 - 4, lanes["A"] + th - 6, "muted", 2.2))
+    # time axis and the rule
+    ay = 350
+    b.append(arrow(150, ay, 1170, ay, "muted", 2.2))
+    b.append(text(1170, ay + 26, "time", 15.5, 500, "end", "muted"))
+    b.append(text(40, 410, "The interpreter counts the fuel itself and stops a task between two instructions, as plain data.", 17, 500, cls="muted"))
+    b.append(text(40, 438, "The kernel then runs another task, or the same one again, from exactly where it stopped.", 17, 500, cls="muted"))
+    return svg(W, H, "\n".join(b), "A task runs until its fuel is gone, then another task runs, or the first one again from where it stopped")
 
 
 # ---- 4. memory --------------------------------------------------------------

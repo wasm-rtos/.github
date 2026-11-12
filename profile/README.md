@@ -26,7 +26,7 @@ Uno), both in plain C with no platform code.
 
 ## What the interpreter does
 
-<p align="center"><img src="images/fuel.svg" alt="Fuel counts every instruction; a stopped program is a snapshot that goes on elsewhere" width="100%"></p>
+<p align="center"><img src="images/fuel.svg" alt="Task A runs until its fuel is gone and stops between two instructions; task B gets a slice; later A goes on from the next instruction" width="100%"></p>
 
 - **Fuel.** One unit is one WebAssembly instruction of the module, counted
   by the interpreter itself: programs are not rewritten or instrumented
