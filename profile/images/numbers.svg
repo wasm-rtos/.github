@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-label="18 programs on an ESP32, 9 on an STM32, a 34.7 KB interpreter, 27437 spec checks">
+<title>18 programs on an ESP32, 9 on an STM32, a 34.7 KB interpreter, 27437 spec checks</title>
+<style>
+:root {
+  --fg:#1f2328; --muted:#59636e; --card:#f6f8fa; --line:#d0d7de; --bg:#ffffff;
+  --prog:#6c5ce7; --prog-soft:#f0eefe;
+  --kern:#0e9384; --kern-soft:#e6f6f4;
+  --vm:#d9692a; --vm-soft:#fdf0e8;
+  --board:#2f6fdf; --board-soft:#eaf1fd;
+  --stop:#d1242f;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg:#e6edf3; --muted:#9198a1; --card:#161b22; --line:#30363d; --bg:#0d1117;
+    --prog:#a29bfe; --prog-soft:#1f1b3a;
+    --kern:#3ec9b6; --kern-soft:#0f2a27;
+    --vm:#f39a5c; --vm-soft:#33200f;
+    --board:#6ea2ff; --board-soft:#132440;
+    --stop:#ff7b72;
+  }
+}
+text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: var(--fg); }
+.muted { fill: var(--muted); }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+<rect x="20" y="16" width="276" height="188" rx="16" style="fill:var(--vm-soft);stroke:var(--vm)" stroke-width="2"/>
+<text x="44" y="98" font-size="54" font-weight="800" text-anchor="start" style="fill:var(--vm)">18</text>
+<text x="44" y="140" font-size="19" font-weight="650" text-anchor="start">programs at once</text>
+<text x="44" y="168" font-size="16" font-weight="500" text-anchor="start" class="muted">ESP32, 280 KB of heap</text>
+<rect x="314" y="16" width="276" height="188" rx="16" style="fill:var(--kern-soft);stroke:var(--kern)" stroke-width="2"/>
+<text x="338" y="98" font-size="54" font-weight="800" text-anchor="start" style="fill:var(--kern)">9</text>
+<text x="338" y="140" font-size="19" font-weight="650" text-anchor="start">programs at once</text>
+<text x="338" y="168" font-size="16" font-weight="500" text-anchor="start" class="muted">STM32, 128 KB of RAM</text>
+<rect x="608" y="16" width="276" height="188" rx="16" style="fill:var(--prog-soft);stroke:var(--prog)" stroke-width="2"/>
+<text x="632" y="98" font-size="54" font-weight="800" text-anchor="start" style="fill:var(--prog)">34.7 KB</text>
+<text x="632" y="140" font-size="19" font-weight="650" text-anchor="start">the whole interpreter</text>
+<text x="632" y="168" font-size="16" font-weight="500" text-anchor="start" class="muted">on an Arduino Uno</text>
+<rect x="902" y="16" width="276" height="188" rx="16" style="fill:var(--board-soft);stroke:var(--board)" stroke-width="2"/>
+<text x="926" y="98" font-size="54" font-weight="800" text-anchor="start" style="fill:var(--board)">27 437</text>
+<text x="926" y="140" font-size="19" font-weight="650" text-anchor="start">spec checks passed</text>
+<text x="926" y="168" font-size="16" font-weight="500" text-anchor="start" class="muted">WebAssembly 2.0</text>
+</svg>
