@@ -111,15 +111,42 @@ that every byte comes back after shutdown.
 | [wasm-rtos-tests](https://github.com/wasm-rtos/wasm-rtos-tests) | One test per feature, run on every change of the kernel, also under the sanitizers. |
 | [wasm-rtos.github.io](https://github.com/wasm-rtos/wasm-rtos.github.io) | The browser simulator: the same kernel compiled to WebAssembly, a dev board with devices, a bus analyzer. |
 
-## Where it is going
+## Roadmap
 
-- More from the MMU: compressed frames in RAM, reading ahead, storage drivers
-  with DMA, a faster paged path.
-- Programs in more languages: a Rust crate for the ABI.
-- Programs that state what they need, power management and windows for
-  programs with a display; graphics libraries on top of the display
-  interface.
-- A redesigned simulator with components and chip models, and a 1.0 release.
+Where the project stands, kept up to date with every merged change. Ideas
+and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
+
+**Now: programs that live through deep sleep**
+
+- [x] The kernel saves the whole system before the RAM is lost and restores
+  it after: tasks with their waits, queues, mutexes, semaphores, events,
+  timers, children, open files; the clock goes on with the time slept
+  ([wasm-rtos#69](https://github.com/wasm-rtos/wasm-rtos/pull/69), in review)
+- [ ] Drivers save and restore their devices, so programs that hold pins,
+  buses, serial ports or a display can be saved too
+- [ ] Waking by a pin a sleeping program waits on
+- [ ] On boards: an ESP32 in deep sleep, a Black Pill reset; size and time
+  measured
+
+**Then: 1.0**
+
+- [ ] The guest ABI 1.x frozen
+- [ ] Every repository explains its design in `docs/decisions.md` (the
+  interpreter and the kernel do)
+- [ ] The simulator on the current kernel: page store, saved systems
+- [ ] Changelogs, tags and the 1.0 release
+
+**After 1.0**
+
+- [ ] Moving a running program to another device or into the browser
+- [ ] dylink.0 programs in snapshots
+- [ ] More from the MMU: compressed frames in RAM, reading ahead, storage
+  drivers with DMA, blocks written out in the background
+- [ ] A faster interpreter: operands inside records, code records in flash
+- [ ] Programs in more languages: a Rust crate for the ABI
+- [ ] Programs that state what they need, power management, windows for
+  programs with a display, graphics libraries
+- [ ] A redesigned simulator with components and chip models
 
 ## Timeline
 
