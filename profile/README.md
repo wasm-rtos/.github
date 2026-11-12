@@ -121,12 +121,14 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 - [x] The kernel saves the whole system before the RAM is lost and restores
   it after: tasks with their waits, queues, mutexes, semaphores, events,
   timers, children, open files; the clock goes on with the time slept
-  ([wasm-rtos#69](https://github.com/wasm-rtos/wasm-rtos/pull/69), in review)
-- [ ] Drivers save and restore their devices, so programs that hold pins,
+  ([wasm-rtos#69](https://github.com/wasm-rtos/wasm-rtos/pull/69))
+- [x] Drivers save and restore their devices, so programs that hold pins,
   buses, serial ports or a display can be saved too
-- [ ] Waking by a pin a sleeping program waits on
-- [ ] On boards: an ESP32 in deep sleep, a Black Pill reset; size and time
-  measured
+  ([wasm-rtos#70](https://github.com/wasm-rtos/wasm-rtos/pull/70), in review)
+- [x] Waking by a pin a sleeping program waits on (#70)
+- [x] On boards: an ESP32 in deep sleep woken by its timer and by a pin, the
+  system on its SD card (saved in 0.1 to 0.24 s, restored in 61 to 73 ms);
+  a Black Pill reset, the system in flash (restored in 40 ms) (#70)
 
 **Then: 1.0**
 
