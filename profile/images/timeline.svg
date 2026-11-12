@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-label="Timeline of wasm-rtos from July to November 2026">
+<title>Timeline of wasm-rtos from July to November 2026</title>
+<style>
+:root {
+  --fg:#1f2328; --muted:#59636e; --card:#f6f8fa; --line:#d0d7de; --bg:#ffffff;
+  --prog:#6c5ce7; --prog-soft:#f0eefe;
+  --kern:#0e9384; --kern-soft:#e6f6f4;
+  --vm:#d9692a; --vm-soft:#fdf0e8;
+  --board:#2f6fdf; --board-soft:#eaf1fd;
+  --stop:#d1242f;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg:#e6edf3; --muted:#9198a1; --card:#161b22; --line:#30363d; --bg:#0d1117;
+    --prog:#a29bfe; --prog-soft:#1f1b3a;
+    --kern:#3ec9b6; --kern-soft:#0f2a27;
+    --vm:#f39a5c; --vm-soft:#33200f;
+    --board:#6ea2ff; --board-soft:#132440;
+    --stop:#ff7b72;
+  }
+}
+text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: var(--fg); }
+.muted { fill: var(--muted); }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+<line x1="110" y1="200.0" x2="1090" y2="200.0" style="stroke:var(--line)" stroke-width="4" stroke-linecap="round"/>
+<line x1="150.0" y1="200.0" x2="150.0" y2="160.0" style="stroke:var(--kern)" stroke-width="2.5"/>
+<circle cx="150.0" cy="200.0" r="11" style="fill:var(--bg);stroke:var(--kern)" stroke-width="4"/>
+<circle cx="150.0" cy="200.0" r="4.5" style="fill:var(--kern)"/>
+<text x="150.0" y="82.0" font-size="16" font-weight="700" text-anchor="middle" style="fill:var(--kern)">Jul 2026</text>
+<text x="150.0" y="106.0" font-size="18" font-weight="700" text-anchor="middle">Kernel starts</text>
+<text x="150.0" y="130.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">objects, queues, timers,</text>
+<text x="150.0" y="151.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">tickless clock</text>
+<line x1="278.57142857142856" y1="200.0" x2="278.57142857142856" y2="240.0" style="stroke:var(--kern)" stroke-width="2.5"/>
+<circle cx="278.57142857142856" cy="200.0" r="11" style="fill:var(--bg);stroke:var(--kern)" stroke-width="4"/>
+<circle cx="278.57142857142856" cy="200.0" r="4.5" style="fill:var(--kern)"/>
+<text x="278.57142857142856" y="270.0" font-size="16" font-weight="700" text-anchor="middle" style="fill:var(--kern)">Aug 2026</text>
+<text x="278.57142857142856" y="294.0" font-size="18" font-weight="700" text-anchor="middle">Libraries</text>
+<text x="278.57142857142856" y="318.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">shared Wasm libraries,</text>
+<text x="278.57142857142856" y="339.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">programs loaded at run time</text>
+<line x1="407.14285714285717" y1="200.0" x2="407.14285714285717" y2="160.0" style="stroke:var(--kern)" stroke-width="2.5"/>
+<circle cx="407.14285714285717" cy="200.0" r="11" style="fill:var(--bg);stroke:var(--kern)" stroke-width="4"/>
+<circle cx="407.14285714285717" cy="200.0" r="4.5" style="fill:var(--kern)"/>
+<text x="407.14285714285717" y="82.0" font-size="16" font-weight="700" text-anchor="middle" style="fill:var(--kern)">Oct 31</text>
+<text x="407.14285714285717" y="106.0" font-size="18" font-weight="700" text-anchor="middle">Processes and files</text>
+<text x="407.14285714285717" y="130.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">spawn, wait, kill;</text>
+<text x="407.14285714285717" y="151.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">a virtual file system</text>
+<line x1="535.7142857142858" y1="200.0" x2="535.7142857142858" y2="240.0" style="stroke:var(--prog)" stroke-width="2.5"/>
+<circle cx="535.7142857142858" cy="200.0" r="11" style="fill:var(--bg);stroke:var(--prog)" stroke-width="4"/>
+<circle cx="535.7142857142858" cy="200.0" r="4.5" style="fill:var(--prog)"/>
+<text x="535.7142857142858" y="270.0" font-size="16" font-weight="700" text-anchor="middle" style="fill:var(--prog)">Nov 1–2</text>
+<text x="535.7142857142858" y="294.0" font-size="18" font-weight="700" text-anchor="middle">ABI 1.0 and devices</text>
+<text x="535.7142857142858" y="318.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">GPIO, display, buses, PWM,</text>
+<text x="535.7142857142858" y="339.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">UART, Arduino core, snapshots</text>
+<line x1="664.2857142857143" y1="200.0" x2="664.2857142857143" y2="160.0" style="stroke:var(--prog)" stroke-width="2.5"/>
+<circle cx="664.2857142857143" cy="200.0" r="11" style="fill:var(--bg);stroke:var(--prog)" stroke-width="4"/>
+<circle cx="664.2857142857143" cy="200.0" r="4.5" style="fill:var(--prog)"/>
+<text x="664.2857142857143" y="82.0" font-size="16" font-weight="700" text-anchor="middle" style="fill:var(--prog)">Nov 7</text>
+<text x="664.2857142857143" y="106.0" font-size="18" font-weight="700" text-anchor="middle">On a real ESP32</text>
+<text x="664.2857142857143" y="130.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">ABI 1.8: 1-Wire, counters,</text>
+<text x="664.2857142857143" y="151.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">analog outputs</text>
+<line x1="792.8571428571429" y1="200.0" x2="792.8571428571429" y2="240.0" style="stroke:var(--vm)" stroke-width="2.5"/>
+<circle cx="792.8571428571429" cy="200.0" r="11" style="fill:var(--bg);stroke:var(--vm)" stroke-width="4"/>
+<circle cx="792.8571428571429" cy="200.0" r="4.5" style="fill:var(--vm)"/>
+<text x="792.8571428571429" y="270.0" font-size="16" font-weight="700" text-anchor="middle" style="fill:var(--vm)">Nov 9</text>
+<text x="792.8571428571429" y="294.0" font-size="18" font-weight="700" text-anchor="middle">Own interpreter</text>
+<text x="792.8571428571429" y="318.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">wasm-rtos-vm, packed records,</text>
+<text x="792.8571428571429" y="339.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">pluggable drivers</text>
+<line x1="921.4285714285716" y1="200.0" x2="921.4285714285716" y2="160.0" style="stroke:var(--vm)" stroke-width="2.5"/>
+<circle cx="921.4285714285716" cy="200.0" r="11" style="fill:var(--bg);stroke:var(--vm)" stroke-width="4"/>
+<circle cx="921.4285714285716" cy="200.0" r="4.5" style="fill:var(--vm)"/>
+<text x="921.4285714285716" y="82.0" font-size="16" font-weight="700" text-anchor="middle" style="fill:var(--vm)">Nov 11</text>
+<text x="921.4285714285716" y="106.0" font-size="18" font-weight="700" text-anchor="middle">MMU</text>
+<text x="921.4285714285716" y="130.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">paging, TLB, page store,</text>
+<text x="921.4285714285716" y="151.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">swap in the background</text>
+<line x1="1050.0" y1="200.0" x2="1050.0" y2="240.0" style="stroke:var(--board)" stroke-width="2.5"/>
+<circle cx="1050.0" cy="200.0" r="11" style="fill:var(--bg);stroke:var(--board)" stroke-width="4"/>
+<circle cx="1050.0" cy="200.0" r="4.5" style="fill:var(--board)"/>
+<text x="1050.0" y="270.0" font-size="16" font-weight="700" text-anchor="middle" style="fill:var(--board)">Nov 12</text>
+<text x="1050.0" y="294.0" font-size="18" font-weight="700" text-anchor="middle">Code cache and CI</text>
+<text x="1050.0" y="318.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">+50% programs at once;</text>
+<text x="1050.0" y="339.0" font-size="14.5" font-weight="500" text-anchor="middle" class="muted">every configuration checked</text>
+</svg>
