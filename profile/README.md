@@ -156,8 +156,9 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   console, putting and running programs, the computer's files and the
   computer as its page store, so a board without an SD card runs programs
   larger than its RAM ([wasm-rtos.github.io#41](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/41))
-- [ ] One program from the SD card of an ESP32 and on the page, with the
-  same output, compared line by line
+- [x] One program on an ESP32 and on the page, with the same output,
+  compared line by line; Run on both does it from the page
+  ([wasm-rtos.github.io#43](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/43))
 - [ ] Changelogs, tags and the 1.0 release
 
 **After 1.0**
