@@ -15,7 +15,7 @@ Uno), both in plain C with no platform code.
 <p align="center"><img src="images/architecture.svg" alt="Programs, the kernel, the interpreter and the board, and what passes between them" width="100%"></p>
 
 - A **program** calls the system through imports: WASI for files, time and
-  output, and the wasm-rtos ABI (versioned, now 1.8) for kernel objects and
+  output, and the wasm-rtos ABI (versioned, frozen at 1.8) for kernel objects and
   devices. It never sees an address of the host.
 - The **kernel** decides: which program runs next and for how long, who owns
   a pin or a bus, which frames of memory stay in RAM. It has no platform
@@ -124,7 +124,7 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   ([wasm-rtos#69](https://github.com/wasm-rtos/wasm-rtos/pull/69))
 - [x] Drivers save and restore their devices, so programs that hold pins,
   buses, serial ports or a display can be saved too
-  ([wasm-rtos#70](https://github.com/wasm-rtos/wasm-rtos/pull/70), in review)
+  ([wasm-rtos#70](https://github.com/wasm-rtos/wasm-rtos/pull/70))
 - [x] Waking by a pin a sleeping program waits on (#70)
 - [x] On boards: an ESP32 in deep sleep woken by its timer and by a pin, the
   system on its SD card (saved in 0.1 to 0.24 s, restored in 61 to 73 ms);
@@ -132,7 +132,10 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 
 **Then: 1.0**
 
-- [ ] The guest ABI 1.x frozen
+- [x] The guest ABI 1.x frozen at 1.8: programs built with a newer 1.x
+  header still load, calls a kernel lacks return `-WR_EUNSUPPORTED`, every
+  WASI call links; CI holds the kernel to the frozen list
+  ([wasm-rtos#71](https://github.com/wasm-rtos/wasm-rtos/pull/71))
 - [ ] Every repository explains its design in `docs/decisions.md` (the
   interpreter and the kernel do)
 - [ ] The simulator on the current kernel: page store, saved systems
