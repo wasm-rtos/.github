@@ -137,8 +137,11 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   WASI call links; CI holds the kernel to the frozen list
   ([wasm-rtos#71](https://github.com/wasm-rtos/wasm-rtos/pull/71))
 - [ ] Every repository explains its design in `docs/decisions.md` (the
-  interpreter and the kernel do)
-- [ ] The simulator on the current kernel: page store, saved systems
+  interpreter, the kernel and the simulator do)
+- [x] The simulator on the current kernel: programs' memory paged under
+  each device's RAM budget, and a sleep button that saves the whole system
+  and wakes it by its timer, a pin or a press, even across a reload
+  ([wasm-rtos.github.io#39](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/39))
 - [ ] Changelogs, tags and the 1.0 release
 
 **After 1.0**
