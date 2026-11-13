@@ -151,8 +151,10 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   ([wasm-rtos.github.io#40](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/40))
 - [ ] Several page stores with priorities, and one going away without
   taking everything with it
-- [ ] A board over its serial port, from a script or from the page: its
-  console, putting and running programs, the computer as its page store
+- [x] A board over its serial port, from a script or from the page: its
+  console, putting and running programs, the computer's files and the
+  computer as its page store, so a board without an SD card runs programs
+  larger than its RAM ([wasm-rtos.github.io#41](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/41))
 - [ ] One program from the SD card of an ESP32 and on the page, with the
   same output, compared line by line
 - [ ] Changelogs, tags and the 1.0 release
