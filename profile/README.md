@@ -149,8 +149,9 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   (heap in its regions, RAM for programs, the SD card's speed), so the page
   runs out of memory where the board does, and chips of your own
   ([wasm-rtos.github.io#40](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/40))
-- [ ] Several page stores with priorities, and one going away without
-  taking everything with it
+- [x] Several page stores with priorities the person sets (an SD card and
+  the computer on the cable, say), and one going away without taking
+  everything with it ([wasm-rtos#73](https://github.com/wasm-rtos/wasm-rtos/pull/73))
 - [x] A board over its serial port, from a script or from the page: its
   console, putting and running programs, the computer's files and the
   computer as its page store, so a board without an SD card runs programs
