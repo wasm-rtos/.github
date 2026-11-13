@@ -142,6 +142,18 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   each device's RAM budget, and a sleep button that saves the whole system
   and wakes it by its timer, a pin or a press, even across a reload
   ([wasm-rtos.github.io#39](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/39))
+- [x] Processes of one program share it: loaded once, found by its
+  contents, so a program and its child from an SD card fit on an ESP32
+  without PSRAM ([wasm-rtos#72](https://github.com/wasm-rtos/wasm-rtos/pull/72))
+- [ ] The simulator's chip settings: presets of real chips (heap and its
+  regions, RAM for programs, page store and its speed), so the page runs
+  out of memory where the board does
+- [ ] Several page stores with priorities, and one going away without
+  taking everything with it
+- [ ] A board over its serial port, from a script or from the page: its
+  console, putting and running programs, the computer as its page store
+- [ ] One program from the SD card of an ESP32 and on the page, with the
+  same output, compared line by line
 - [ ] Changelogs, tags and the 1.0 release
 
 **After 1.0**
