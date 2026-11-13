@@ -145,9 +145,10 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 - [x] Processes of one program share it: loaded once, found by its
   contents, so a program and its child from an SD card fit on an ESP32
   without PSRAM ([wasm-rtos#72](https://github.com/wasm-rtos/wasm-rtos/pull/72))
-- [ ] The simulator's chip settings: presets of real chips (heap and its
-  regions, RAM for programs, page store and its speed), so the page runs
-  out of memory where the board does
+- [x] The simulator's chip settings: the ESP32 measured on a real board
+  (heap in its regions, RAM for programs, the SD card's speed), so the page
+  runs out of memory where the board does, and chips of your own
+  ([wasm-rtos.github.io#40](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/40))
 - [ ] Several page stores with priorities, and one going away without
   taking everything with it
 - [ ] A board over its serial port, from a script or from the page: its
