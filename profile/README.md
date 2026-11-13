@@ -130,14 +130,14 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   system on its SD card (saved in 0.1 to 0.24 s, restored in 61 to 73 ms);
   a Black Pill reset, the system in flash (restored in 40 ms) (#70)
 
-**Then: 1.0**
+**1.0: released 13 November 2026**
 
 - [x] The guest ABI 1.x frozen at 1.8: programs built with a newer 1.x
   header still load, calls a kernel lacks return `-WR_EUNSUPPORTED`, every
   WASI call links; CI holds the kernel to the frozen list
   ([wasm-rtos#71](https://github.com/wasm-rtos/wasm-rtos/pull/71))
-- [ ] Every repository explains its design in `docs/decisions.md` (the
-  interpreter, the kernel and the simulator do)
+- [x] Every repository explains its design in `docs/decisions.md`
+  ([wasm-rtos-libraries#1](https://github.com/wasm-rtos/wasm-rtos-libraries/pull/1))
 - [x] The simulator on the current kernel: programs' memory paged under
   each device's RAM budget, and a sleep button that saves the whole system
   and wakes it by its timer, a pin or a press, even across a reload
@@ -159,7 +159,7 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 - [x] One program on an ESP32 and on the page, with the same output,
   compared line by line; Run on both does it from the page
   ([wasm-rtos.github.io#43](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/43))
-- [ ] Changelogs, tags and the 1.0 release
+- [x] Changelogs, tags and the 1.0 release (`v1.0.0` in every repository)
 
 **After 1.0**
 
