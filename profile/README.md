@@ -130,11 +130,14 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   away, the two loops in files of their own, GCC builds without a warning
   on every chip, CI builds with clang and GCC
   ([wasm-rtos-vm#26](https://github.com/wasm-rtos/wasm-rtos-vm/pull/26))
-- [ ] The instructions described once, in one list both loops are made
+- [x] The instructions described once, in one list both loops are made
   from ([wasm-rtos-vm#27](https://github.com/wasm-rtos/wasm-rtos-vm/pull/27))
-- [ ] Every experiment written down with its numbers, kept or not
+- [x] Every experiment written down with its numbers, kept or not
   ([wasm-rtos-vm#28](https://github.com/wasm-rtos/wasm-rtos-vm/pull/28))
-- [ ] Fuzzing the loader and the interpreter
+- [ ] Fuzzing the loader, the interpreter and snapshots, and the engine
+  against itself; snapshots checked against the code as modules are, and
+  references on the stack that survive a fresh instance
+  ([wasm-rtos-vm#29](https://github.com/wasm-rtos/wasm-rtos-vm/pull/29))
 - [ ] A profile of what programs run, and CoreMark in CI with a threshold
 - [ ] Speed where the profile points: 64-bit handlers, more fused runs
 - [ ] A register machine (a decision of its own)
