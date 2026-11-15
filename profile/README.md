@@ -134,11 +134,13 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   from ([wasm-rtos-vm#27](https://github.com/wasm-rtos/wasm-rtos-vm/pull/27))
 - [x] Every experiment written down with its numbers, kept or not
   ([wasm-rtos-vm#28](https://github.com/wasm-rtos/wasm-rtos-vm/pull/28))
-- [ ] Fuzzing the loader, the interpreter and snapshots, and the engine
+- [x] Fuzzing the loader, the interpreter and snapshots, and the engine
   against itself; snapshots checked against the code as modules are, and
   references on the stack that survive a fresh instance
   ([wasm-rtos-vm#29](https://github.com/wasm-rtos/wasm-rtos-vm/pull/29))
-- [ ] A profile of what programs run, and CoreMark in CI with a threshold
+- [x] A profile of what programs run, and speed and size in CI by counts
+  of instructions, against each pull request's base
+  ([wasm-rtos-vm#31](https://github.com/wasm-rtos/wasm-rtos-vm/pull/31))
 - [ ] Speed where the profile points: 64-bit handlers, more fused runs
 - [ ] A register machine (a decision of its own)
 
