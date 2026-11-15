@@ -116,7 +116,30 @@ that every byte comes back after shutdown.
 Where the project stands, kept up to date with every merged change. Ideas
 and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 
-**Now: programs that live through deep sleep**
+**Now: the interpreter, as good as it can be**
+
+- [x] Instances and modules keep only the memory they use: the tour
+  program's module 26% smaller, 920 bytes less for each of its processes
+  on an ESP32, the Uno runs its test program again
+  ([wasm-rtos-vm#24](https://github.com/wasm-rtos/wasm-rtos-vm/pull/24))
+- [x] A faster fast loop: the top of the stack in a register, canonical
+  types, handlers of their own for byte and 16-bit accesses and globals;
+  CoreMark +28.8% on an ESP32, +15.5% on a Mac
+  ([wasm-rtos-vm#25](https://github.com/wasm-rtos/wasm-rtos-vm/pull/25))
+- [x] Code quality: the static analyzer finds nothing, no `const` cast
+  away, the two loops in files of their own, GCC builds without a warning
+  on every chip, CI builds with clang and GCC
+  ([wasm-rtos-vm#26](https://github.com/wasm-rtos/wasm-rtos-vm/pull/26))
+- [ ] The instructions described once, in one list both loops are made
+  from ([wasm-rtos-vm#27](https://github.com/wasm-rtos/wasm-rtos-vm/pull/27))
+- [ ] Every experiment written down with its numbers, kept or not
+  ([wasm-rtos-vm#28](https://github.com/wasm-rtos/wasm-rtos-vm/pull/28))
+- [ ] Fuzzing the loader and the interpreter
+- [ ] A profile of what programs run, and CoreMark in CI with a threshold
+- [ ] Speed where the profile points: 64-bit handlers, more fused runs
+- [ ] A register machine (a decision of its own)
+
+**Before: programs that live through deep sleep**
 
 - [x] The kernel saves the whole system before the RAM is lost and restores
   it after: tasks with their waits, queues, mutexes, semaphores, events,
