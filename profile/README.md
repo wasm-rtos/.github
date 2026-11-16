@@ -141,8 +141,13 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 - [x] A profile of what programs run, and speed and size in CI by counts
   of instructions, against each pull request's base
   ([wasm-rtos-vm#31](https://github.com/wasm-rtos/wasm-rtos-vm/pull/31))
-- [ ] Speed where the profile points: 64-bit handlers, more fused runs
-- [ ] A register machine (a decision of its own)
+- [x] Clear hot code, and fused records chosen by the profile: CoreMark
+  +2.9% on an ESP32, +3.8% on a Black Pill
+  ([wasm-rtos-vm#33](https://github.com/wasm-rtos/wasm-rtos-vm/pull/33))
+- [x] Operands in records, the gain of a register machine with fuel and
+  snapshots exact as before: CoreMark +3.7% on an ESP32, +8.8% on a Black
+  Pill ([wasm-rtos-vm#34](https://github.com/wasm-rtos/wasm-rtos-vm/pull/34))
+- [ ] Paged memory closer to memory in one block
 
 **Before: programs that live through deep sleep**
 
@@ -158,7 +163,7 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   system on its SD card (saved in 0.1 to 0.24 s, restored in 61 to 73 ms);
   a Black Pill reset, the system in flash (restored in 40 ms) (#70)
 
-**1.0: released 13 November 2026**
+**1.0: everything of it done; tagged once the interpreter work above is done too**
 
 - [x] The guest ABI 1.x frozen at 1.8: programs built with a newer 1.x
   header still load, calls a kernel lacks return `-WR_EUNSUPPORTED`, every
@@ -187,7 +192,8 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 - [x] One program on an ESP32 and on the page, with the same output,
   compared line by line; Run on both does it from the page
   ([wasm-rtos.github.io#43](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/43))
-- [x] Changelogs, tags and the 1.0 release (`v1.0.0` in every repository)
+- [x] Changelogs
+- [ ] Tags and the 1.0 release (`v1.0.0` in every repository)
 
 **After 1.0**
 
