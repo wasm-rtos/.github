@@ -147,7 +147,10 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 - [x] Operands in records, the gain of a register machine with fuel and
   snapshots exact as before: CoreMark +3.7% on an ESP32, +8.8% on a Black
   Pill ([wasm-rtos-vm#34](https://github.com/wasm-rtos/wasm-rtos-vm/pull/34))
-- [ ] Paged memory closer to memory in one block
+- [x] Paged memory closer to memory in one block: an addend in the TLB,
+  fused loads on paged memories; CoreMark paged +6.1% on an ESP32
+  ([wasm-rtos-vm#35](https://github.com/wasm-rtos/wasm-rtos-vm/pull/35))
+- [ ] Programs' code in flash or PSRAM, RAM only for the hot functions
 
 **Before: programs that live through deep sleep**
 
