@@ -150,7 +150,14 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 - [x] Paged memory closer to memory in one block: an addend in the TLB,
   fused loads on paged memories; CoreMark paged +6.1% on an ESP32
   ([wasm-rtos-vm#35](https://github.com/wasm-rtos/wasm-rtos-vm/pull/35))
-- [ ] Programs' code in flash or PSRAM, RAM only for the hot functions
+- [x] Programs' code in flash or PSRAM, RAM only for the hot functions:
+  CoreMark from flash with no RAM for code 3% slower on an ESP32; short of
+  RAM 2% slower instead of half
+  ([wasm-rtos-vm#36](https://github.com/wasm-rtos/wasm-rtos-vm/pull/36))
+- [ ] Moves fused with what takes them next: CoreMark +7.7% on an ESP32,
+  +11% on a Black Pill
+  ([wasm-rtos-vm#37](https://github.com/wasm-rtos/wasm-rtos-vm/pull/37))
+- [ ] The register loop, measured once and for all (decision 16)
 
 **Before: programs that live through deep sleep**
 
