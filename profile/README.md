@@ -154,7 +154,7 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   CoreMark from flash with no RAM for code 3% slower on an ESP32; short of
   RAM 2% slower instead of half
   ([wasm-rtos-vm#36](https://github.com/wasm-rtos/wasm-rtos-vm/pull/36))
-- [ ] Moves fused with what takes them next: CoreMark +7.7% on an ESP32,
+- [x] Moves fused with what takes them next: CoreMark +7.7% on an ESP32,
   +11% on a Black Pill
   ([wasm-rtos-vm#37](https://github.com/wasm-rtos/wasm-rtos-vm/pull/37))
 - [ ] The register loop, measured once and for all (decision 16)
