@@ -167,6 +167,11 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   ([wasm-rtos#75](https://github.com/wasm-rtos/wasm-rtos/pull/75),
   [wasm-rtos-tests#75](https://github.com/wasm-rtos/wasm-rtos-tests/pull/75)):
   CoreMark in the system 17.5 → 22.6 on an ESP32
+- [x] Code stores: programs' decoded code kept in flash or PSRAM, by
+  priority, so it needs no RAM and programs start without predecoding
+  ([wasm-rtos#77](https://github.com/wasm-rtos/wasm-rtos/pull/77));
+  a failed instantiation no longer leaks
+  ([wasm-rtos#76](https://github.com/wasm-rtos/wasm-rtos/pull/76))
 
 **Before: programs that live through deep sleep**
 
