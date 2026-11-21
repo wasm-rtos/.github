@@ -17,9 +17,13 @@ Uno), both in plain C with no platform code.
 - A **program** calls the system through imports: WASI for files, time and
   output, and the wasm-rtos ABI (versioned, frozen at 1.8) for kernel objects and
   devices. It never sees an address of the host.
-- The **kernel** decides: which program runs next and for how long, who owns
-  a pin or a bus, which frames of memory stay in RAM. It has no platform
-  code: a board gives it a clock and its devices through small ports.
+- The **kernel** decides: which program runs next and for how long, which
+  frames of memory stay in RAM. It has no platform code: a board gives it a
+  clock through a small port.
+- The **devices** (wasm-rtos-hw) lend pins, buses, displays and the rest to
+  one program at a time; a board registers what it has through small ports.
+  They need from the kernel only what one header declares, so a scheduler
+  of one's own can have them too.
 - The **interpreter** runs the program's own instructions, counts them and
   stops between any two of them, and pages the program's memory. It knows
   nothing of tasks or devices.
@@ -105,7 +109,8 @@ that every byte comes back after shutdown.
 
 | Repository | What is in it |
 |---|---|
-| [wasm-rtos](https://github.com/wasm-rtos/wasm-rtos) | The kernel: scheduler, objects, processes, files, drivers, paging policy, the guest ABI (`include/wasm-rtos.h`, `wit/kernel.wit`). |
+| [wasm-rtos](https://github.com/wasm-rtos/wasm-rtos) | The kernel: scheduler, objects, processes, files, paging policy, the guest ABI (`include/wasm-rtos.h`, `wit/kernel.wit`). |
+| [wasm-rtos-hw](https://github.com/wasm-rtos/wasm-rtos-hw) | The devices: pins, buses, displays, input, analog, PWM, serial ports, pulse trains, 1-Wire, counters; the ports a board fills in and drivers of one's own. What they need from an operating system is one header. |
 | [wasm-rtos-vm](https://github.com/wasm-rtos/wasm-rtos-vm) | The interpreter: fuel, MMU, code cache, snapshots, dylink.0. Usable on its own. |
 | [wasm-rtos-libraries](https://github.com/wasm-rtos/wasm-rtos-libraries) | Libraries inside programs: the Arduino core (`Serial`, `Wire`, `SPI`) and ports of Arduino libraries for 1-Wire sensors, encoders and addressable LEDs. |
 | [wasm-rtos-tests](https://github.com/wasm-rtos/wasm-rtos-tests) | One test per feature, run on every change of the kernel, also under the sanitizers. |
@@ -217,6 +222,9 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   compared line by line; Run on both does it from the page
   ([wasm-rtos.github.io#43](https://github.com/wasm-rtos/wasm-rtos.github.io/pull/43))
 - [x] Changelogs
+- [x] Devices in a library of their own, wasm-rtos-hw, with the prefix
+  `hw_`; what they need from an operating system is one header
+  ([wasm-rtos#81](https://github.com/wasm-rtos/wasm-rtos/pull/81))
 - [ ] Tags and the 1.0 release (`v1.0.0` in every repository)
 
 **After 1.0**
