@@ -223,8 +223,13 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 
 - [ ] Moving a running program to another device or into the browser
 - [ ] dylink.0 programs in snapshots
-- [ ] More from the MMU: compressed frames in RAM, reading ahead, storage
-  drivers with DMA, blocks written out in the background
+- [x] More from the MMU: zero frames never written, a compressed page store
+  in RAM, sleeping tasks' frames written ahead in quiet time
+  ([wasm-rtos-vm#40](https://github.com/wasm-rtos/wasm-rtos-vm/pull/40),
+  [wasm-rtos#78](https://github.com/wasm-rtos/wasm-rtos/pull/78),
+  [wasm-rtos-vm#41](https://github.com/wasm-rtos/wasm-rtos-vm/pull/41),
+  [wasm-rtos#80](https://github.com/wasm-rtos/wasm-rtos/pull/80))
+- [ ] Reading frames ahead and storage drivers with DMA
 - [x] A faster interpreter: operands inside records, code records in flash
   (done before 1.0: the register loop and code images above)
 - [ ] Programs in more languages: a Rust crate for the ABI
