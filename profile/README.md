@@ -161,7 +161,7 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   snapshots exact as before; CoreMark +33% on an ESP32, +28% on a Black
   Pill
   ([wasm-rtos-vm#38](https://github.com/wasm-rtos/wasm-rtos-vm/pull/38))
-- [ ] Shorter records, below the stack loop's
+- [x] Shorter records, below the stack loop's
   ([wasm-rtos-vm#39](https://github.com/wasm-rtos/wasm-rtos-vm/pull/39))
 
 **Before: programs that live through deep sleep**
