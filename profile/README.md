@@ -163,6 +163,10 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   ([wasm-rtos-vm#38](https://github.com/wasm-rtos/wasm-rtos-vm/pull/38))
 - [x] Shorter records, below the stack loop's
   ([wasm-rtos-vm#39](https://github.com/wasm-rtos/wasm-rtos-vm/pull/39))
+- [x] The kernel and its tests on this interpreter
+  ([wasm-rtos#75](https://github.com/wasm-rtos/wasm-rtos/pull/75),
+  [wasm-rtos-tests#75](https://github.com/wasm-rtos/wasm-rtos-tests/pull/75)):
+  CoreMark in the system 17.5 → 22.6 on an ESP32
 
 **Before: programs that live through deep sleep**
 
@@ -216,7 +220,8 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 - [ ] dylink.0 programs in snapshots
 - [ ] More from the MMU: compressed frames in RAM, reading ahead, storage
   drivers with DMA, blocks written out in the background
-- [ ] A faster interpreter: operands inside records, code records in flash
+- [x] A faster interpreter: operands inside records, code records in flash
+  (done before 1.0: the register loop and code images above)
 - [ ] Programs in more languages: a Rust crate for the ABI
 - [ ] Programs that state what they need, power management, windows for
   programs with a display, graphics libraries
