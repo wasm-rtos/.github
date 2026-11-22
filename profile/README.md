@@ -225,6 +225,13 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 - [x] Devices in a library of their own, wasm-rtos-hw, with the prefix
   `hw_`; what they need from an operating system is one header
   ([wasm-rtos#81](https://github.com/wasm-rtos/wasm-rtos/pull/81))
+- [x] Each layer holds what is its own: WASI without files in the
+  interpreter, device imports bound by the device library, the host's RTOS
+  out of the kernel's API, a simple host for a mini OS of the interpreter
+  and the devices, the public API at 1.0 checked in CI
+  ([wasm-rtos#84](https://github.com/wasm-rtos/wasm-rtos/pull/84),
+  [wasm-rtos-vm#43](https://github.com/wasm-rtos/wasm-rtos-vm/pull/43),
+  [wasm-rtos-hw#1](https://github.com/wasm-rtos/wasm-rtos-hw/pull/1))
 - [ ] Tags and the 1.0 release (`v1.0.0` in every repository)
 
 **After 1.0**
