@@ -111,7 +111,8 @@ that every byte comes back after shutdown.
 |---|---|
 | [wasm-rtos](https://github.com/wasm-rtos/wasm-rtos) | The kernel: scheduler, objects, processes, files, paging policy, the guest ABI (`include/wasm-rtos.h`, `wit/kernel.wit`). |
 | [wasm-rtos-hw](https://github.com/wasm-rtos/wasm-rtos-hw) | The devices: pins, buses, displays, input, analog, PWM, serial ports, pulse trains, 1-Wire, counters; the ports a board fills in and drivers of one's own. What they need from an operating system is one header. |
-| [wasm-rtos-vm](https://github.com/wasm-rtos/wasm-rtos-vm) | The interpreter: fuel, MMU, code cache, snapshots, dylink.0. Usable on its own. |
+| [wasm-rtos-vm](https://github.com/wasm-rtos/wasm-rtos-vm) | The interpreter: fuel, MMU, code cache, snapshots, dylink.0, WASI without files. Usable on its own. |
+| [wasm-rtos-examples](https://github.com/wasm-rtos/wasm-rtos-examples) | Small, complete hosts and programs for every layer: the interpreter alone, a mini OS of the interpreter and the devices, the kernel with tasks, queues and devices. Built and run in CI. |
 | [wasm-rtos-libraries](https://github.com/wasm-rtos/wasm-rtos-libraries) | Libraries inside programs: the Arduino core (`Serial`, `Wire`, `SPI`) and ports of Arduino libraries for 1-Wire sensors, encoders and addressable LEDs. |
 | [wasm-rtos-tests](https://github.com/wasm-rtos/wasm-rtos-tests) | One test per feature, run on every change of the kernel, also under the sanitizers. |
 | [wasm-rtos.github.io](https://github.com/wasm-rtos/wasm-rtos.github.io) | The browser simulator: the same kernel compiled to WebAssembly, a dev board with devices, a bus analyzer. |
@@ -232,6 +233,8 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   ([wasm-rtos#84](https://github.com/wasm-rtos/wasm-rtos/pull/84),
   [wasm-rtos-vm#43](https://github.com/wasm-rtos/wasm-rtos-vm/pull/43),
   [wasm-rtos-hw#1](https://github.com/wasm-rtos/wasm-rtos-hw/pull/1))
+- [x] Examples of every layer in a repository of their own, built and run
+  in CI ([wasm-rtos-examples](https://github.com/wasm-rtos/wasm-rtos-examples))
 - [ ] Tags and the 1.0 release (`v1.0.0` in every repository)
 
 **After 1.0**
