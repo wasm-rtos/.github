@@ -239,8 +239,10 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   time, code kept apart from what stays, so memory comes back in one piece
   ([wasm-rtos-vm#45](https://github.com/wasm-rtos/wasm-rtos-vm/pull/45),
   [wasm-rtos#86](https://github.com/wasm-rtos/wasm-rtos/pull/86))
-- [ ] A function runs in place by itself when its code finds no room, and
+- [x] A function runs in place by itself when its code finds no room, and
   idle tasks make no new code
+  ([wasm-rtos-vm#46](https://github.com/wasm-rtos/wasm-rtos-vm/pull/46),
+  [wasm-rtos#87](https://github.com/wasm-rtos/wasm-rtos/pull/87))
 - [ ] Tags and the 1.0 release (`v1.0.0` in every repository)
 
 **After 1.0**
