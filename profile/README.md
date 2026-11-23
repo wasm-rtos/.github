@@ -243,6 +243,12 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   idle tasks make no new code
   ([wasm-rtos-vm#46](https://github.com/wasm-rtos/wasm-rtos-vm/pull/46),
   [wasm-rtos#87](https://github.com/wasm-rtos/wasm-rtos/pull/87))
+- [x] Every Wasm instruction and every record in one file, the tables made
+  from it, names instead of numbers in the code; machine code unchanged
+  ([wasm-rtos-vm#47](https://github.com/wasm-rtos/wasm-rtos-vm/pull/47))
+- [x] Names that say what they are, and `WM_TINY`: the Uno's engine in one
+  setting, 27.7 KB of flash, held under 30 KB in CI
+  ([wasm-rtos-vm#48](https://github.com/wasm-rtos/wasm-rtos-vm/pull/48))
 - [ ] Tags and the 1.0 release (`v1.0.0` in every repository)
 
 **After 1.0**
