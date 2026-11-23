@@ -235,6 +235,11 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   [wasm-rtos-hw#1](https://github.com/wasm-rtos/wasm-rtos-hw/pull/1))
 - [x] Examples of every layer in a repository of their own, built and run
   in CI ([wasm-rtos-examples](https://github.com/wasm-rtos/wasm-rtos-examples))
+- [x] The interpreter's own heap, the same on every platform: constant
+  time, code kept apart from what stays, so memory comes back in one piece
+  ([wasm-rtos-vm#45](https://github.com/wasm-rtos/wasm-rtos-vm/pull/45))
+- [ ] A function runs in place by itself when its code finds no room, and
+  idle tasks make no new code
 - [ ] Tags and the 1.0 release (`v1.0.0` in every repository)
 
 **After 1.0**
