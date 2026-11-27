@@ -51,8 +51,11 @@ Uno), both in plain C with no platform code.
   made again when needed, never those of a function on a call stack.
 - **The full standard.** WebAssembly 2.0 without SIMD: the official test
   suite passes (27437 checks), also under the sanitizers, in every build.
-- **dylink.0** shared libraries, traces after a trap, options to leave out
-  validation, 64-bit integers, floats or reference types on small chips.
+- **Modules linked by the host** through the public API, and saved
+  together in one snapshot: dylink.0 shared libraries are one way
+  ([wasm-rtos-dylink](https://github.com/wasm-rtos/wasm-rtos-dylink)).
+  Traces after a trap, options to leave out validation, 64-bit integers,
+  floats or reference types on small chips.
 
 ## What the kernel does
 
@@ -111,7 +114,8 @@ that every byte comes back after shutdown.
 |---|---|
 | [wasm-rtos](https://github.com/wasm-rtos/wasm-rtos) | The kernel: scheduler, objects, processes, files, paging policy, the guest ABI (`include/wasm-rtos.h`, `wit/kernel.wit`). |
 | [wasm-rtos-hw](https://github.com/wasm-rtos/wasm-rtos-hw) | The devices: pins, buses, displays, input, analog, PWM, serial ports, pulse trains, 1-Wire, counters; the ports a board fills in and drivers of one's own. What they need from an operating system is one header. |
-| [wasm-rtos-vm](https://github.com/wasm-rtos/wasm-rtos-vm) | The interpreter: fuel, MMU, code cache, snapshots, dylink.0, WASI without files. Usable on its own. |
+| [wasm-rtos-vm](https://github.com/wasm-rtos/wasm-rtos-vm) | The interpreter: fuel, MMU, code cache, snapshots, modules a host links, WASI without files. Usable on its own. |
+| [wasm-rtos-dylink](https://github.com/wasm-rtos/wasm-rtos-dylink) | dylink.0 shared libraries: a program and the libraries it needs as one process, on the interpreter's public API, and a loader of the kernel (`os_dylink_add`). |
 | [wasm-rtos-examples](https://github.com/wasm-rtos/wasm-rtos-examples) | Small, complete hosts and programs for every layer: the interpreter alone, a mini OS of the interpreter and the devices, the kernel with tasks, queues and devices. Built and run in CI. |
 | [wasm-rtos-libraries](https://github.com/wasm-rtos/wasm-rtos-libraries) | Libraries inside programs: the Arduino core (`Serial`, `Wire`, `SPI`) and ports of Arduino libraries for 1-Wire sensors, encoders and addressable LEDs. |
 | [wasm-rtos-tests](https://github.com/wasm-rtos/wasm-rtos-tests) | One test per feature, run on every change of the kernel, also under the sanitizers. |
@@ -249,12 +253,19 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 - [x] Names that say what they are, and `WM_TINY`: the Uno's engine in one
   setting, 27.7 KB of flash, held under 30 KB in CI
   ([wasm-rtos-vm#48](https://github.com/wasm-rtos/wasm-rtos-vm/pull/48))
+- [x] Loaders join the kernel as drivers do, and dylink.0 is one, in a
+  repository of its own on the interpreter's public API; a linked program
+  is saved and put to deep sleep as any
+  ([wasm-rtos-vm#49](https://github.com/wasm-rtos/wasm-rtos-vm/pull/49),
+  [wasm-rtos#89](https://github.com/wasm-rtos/wasm-rtos/pull/89),
+  [wasm-rtos-dylink](https://github.com/wasm-rtos/wasm-rtos-dylink))
 - [ ] Tags and the 1.0 release (`v1.0.0` in every repository)
 
 **After 1.0**
 
 - [ ] Moving a running program to another device or into the browser
-- [ ] dylink.0 programs in snapshots
+- [x] dylink.0 programs in snapshots (done before 1.0, with the loaders above)
+- [ ] Swapping out a loader's program (its memory is the loader's)
 - [x] More from the MMU: zero frames never written, a compressed page store
   in RAM, sleeping tasks' frames written ahead in quiet time
   ([wasm-rtos-vm#40](https://github.com/wasm-rtos/wasm-rtos-vm/pull/40),
