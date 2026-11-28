@@ -115,7 +115,7 @@ that every byte comes back after shutdown.
 | [wasm-rtos](https://github.com/wasm-rtos/wasm-rtos) | The kernel: scheduler, objects, processes, files, paging policy, the guest ABI (`include/wasm-rtos.h`, `wit/kernel.wit`). |
 | [wasm-rtos-hw](https://github.com/wasm-rtos/wasm-rtos-hw) | The devices: pins, buses, displays, input, analog, PWM, serial ports, pulse trains, 1-Wire, counters; the ports a board fills in and drivers of one's own. What they need from an operating system is one header. |
 | [wasm-rtos-vm](https://github.com/wasm-rtos/wasm-rtos-vm) | The interpreter: fuel, MMU, code cache, snapshots, modules a host links, WASI without files. Usable on its own. |
-| [wasm-rtos-dylink](https://github.com/wasm-rtos/wasm-rtos-dylink) | dylink.0 shared libraries: a program and the libraries it needs as one process, on the interpreter's public API, and a loader of the kernel (`os_dylink_add`). |
+| [wasm-rtos-dylink](https://github.com/wasm-rtos/wasm-rtos-dylink) | dylink.0 shared libraries: a program and the libraries it needs as one process, on the interpreter's public API, and a loader of the kernel (`os_dylink_add`), libraries in memory or from a directory of the file system. |
 | [wasm-rtos-examples](https://github.com/wasm-rtos/wasm-rtos-examples) | Small, complete hosts and programs for every layer: the interpreter alone, a mini OS of the interpreter and the devices, the kernel with tasks, queues and devices. Built and run in CI. |
 | [wasm-rtos-libraries](https://github.com/wasm-rtos/wasm-rtos-libraries) | Libraries inside programs: the Arduino core (`Serial`, `Wire`, `SPI`) and ports of Arduino libraries for 1-Wire sensors, encoders and addressable LEDs. |
 | [wasm-rtos-tests](https://github.com/wasm-rtos/wasm-rtos-tests) | One test per feature, run on every change of the kernel, also under the sanitizers. |
@@ -269,6 +269,9 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
   ([wasm-rtos-vm#50](https://github.com/wasm-rtos/wasm-rtos-vm/pull/50),
   [wasm-rtos#90](https://github.com/wasm-rtos/wasm-rtos/pull/90),
   [wasm-rtos-dylink#1](https://github.com/wasm-rtos/wasm-rtos-dylink/pull/1))
+- [x] Shared libraries from a card: a directory of libraries, a new `.so`
+  on the card with no new firmware
+  ([wasm-rtos-dylink#2](https://github.com/wasm-rtos/wasm-rtos-dylink/pull/2))
 - [x] More from the MMU: zero frames never written, a compressed page store
   in RAM, sleeping tasks' frames written ahead in quiet time
   ([wasm-rtos-vm#40](https://github.com/wasm-rtos/wasm-rtos-vm/pull/40),
