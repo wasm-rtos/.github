@@ -265,7 +265,10 @@ and questions: [Discussions](https://github.com/orgs/wasm-rtos/discussions).
 
 - [ ] Moving a running program to another device or into the browser
 - [x] dylink.0 programs in snapshots (done before 1.0, with the loaders above)
-- [ ] Swapping out a loader's program (its memory is the loader's)
+- [x] Swapping out a loader's program: a linked task swaps out as any
+  ([wasm-rtos-vm#50](https://github.com/wasm-rtos/wasm-rtos-vm/pull/50),
+  [wasm-rtos#90](https://github.com/wasm-rtos/wasm-rtos/pull/90),
+  [wasm-rtos-dylink#1](https://github.com/wasm-rtos/wasm-rtos-dylink/pull/1))
 - [x] More from the MMU: zero frames never written, a compressed page store
   in RAM, sleeping tasks' frames written ahead in quiet time
   ([wasm-rtos-vm#40](https://github.com/wasm-rtos/wasm-rtos-vm/pull/40),
